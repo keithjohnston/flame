@@ -221,6 +221,15 @@ class ScaleUpdateInfo extends PositionInfo<ScaleUpdateDetails> {
   ) : super(game, raw.focalPoint, raw);
 }
 
+class PointerPanZoomUpdateInfo extends PositionInfo<PointerPanZoomUpdateEvent> {
+  late final EventDelta scrollDelta = EventDelta(_game, raw.panDelta);
+
+  PointerPanZoomUpdateInfo.fromDetails(
+    Game game,
+    PointerPanZoomUpdateEvent raw,
+  ) : super(game, raw.position, raw);
+}
+
 mixin _HandledField {
   bool handled = false;
 }

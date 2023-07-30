@@ -1,5 +1,6 @@
 import 'package:flame/events.dart';
 import 'package:flame/src/game/game.dart';
+import 'package:flame/src/gestures/events.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/widgets.dart';
 
@@ -190,6 +191,11 @@ Widget applyMouseDetectors(Game game, Widget child) {
     onPointerSignal: (event) =>
         game is ScrollDetector && event is PointerScrollEvent
             ? game.onScroll(PointerScrollInfo.fromDetails(game, event))
+            : null,
+    onPointerPanZoomUpdate: (event) =>
+        game is ScrollDetector
+            ? game.onPointerPanZoom(PointerPanZoomUpdateInfo.
+            fromDetails(game, event),)
             : null,
   );
 }

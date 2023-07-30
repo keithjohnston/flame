@@ -196,4 +196,5 @@ mixin MouseMovementDetector on Game {
 
 mixin ScrollDetector on Game {
   void onScroll(PointerScrollInfo info) {}
+  void onPointerPanZoom(PointerPanZoomUpdateInfo info) {}
 }
